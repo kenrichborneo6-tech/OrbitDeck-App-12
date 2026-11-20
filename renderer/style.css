@@ -1,0 +1,36 @@
+:root{--ink:#f4efe2;--dim:#b4b3aa;--glow:#f6efdc;--panel:rgba(9,11,16,.62);--line:rgba(244,239,226,.18);
+  --display:'Barlow Condensed','Arial Narrow','Impact',sans-serif;--ui:'Segoe UI',system-ui,sans-serif;color-scheme:dark}
+html,body{height:100%;margin:0;background:transparent;overflow:hidden;color:var(--ink);font:500 14px/1.35 var(--ui);user-select:none}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+#sky{display:none}
+#lyrics{position:fixed;left:6%;top:11%;max-width:48%;font:italic 800 clamp(56px,7.2vw,150px)/.88 var(--display);
+  text-transform:uppercase;transform:rotate(var(--rot,-7deg));transform-origin:0 0;text-shadow:0 0 40px rgba(0,0,0,.6);pointer-events:none}
+.w{display:inline-block;margin-right:.2em;opacity:0;transform:translateY(.35em) scale(.92);animation:pop .55s cubic-bezier(.2,.9,.2,1) forwards;animation-delay:calc(var(--i)*80ms)}
+.w.s{font-size:.5em}
+@keyframes pop{to{opacity:1;transform:none}}
+#deck{position:fixed;left:3%;bottom:7%;width:340px;box-sizing:border-box;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;
+  backdrop-filter:blur(16px);display:flex;flex-direction:column;gap:11px}
+.ctrls{display:flex;align-items:center;gap:2px}.ctrls .sp{flex:1}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.ib{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--dim);font-size:18px}
+.ib:hover{background:rgba(244,239,226,.1);color:var(--ink)}.ib.on{color:var(--glow);background:rgba(244,239,226,.16)}
+.ib svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ib.f svg{fill:currentColor;stroke:none}
+#play{width:40px;height:40px;background:var(--glow);color:#0a0b10}#play:hover{background:#fff;color:#0a0b10}#play svg{width:19px;height:19px}
+.now{display:flex;gap:12px;align-items:center;min-width:0}
+.now img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 18px rgba(246,239,220,.25)}
+.now div{min-width:0}
+#ttl{font-weight:700;font-size:16px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#art{color:var(--dim);font-size:12.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar{height:4px;border-radius:2px;background:rgba(244,239,226,.16);cursor:pointer;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:2px;background:var(--glow);box-shadow:0 0 10px rgba(246,239,220,.6)}
+.times{display:flex;justify-content:space-between;color:var(--dim);font-size:11.5px;font-variant-numeric:tabular-nums;margin-top:5px}
+#syncrow{display:flex;align-items:center;gap:6px;color:var(--dim);font-size:12px}#syncrow[hidden]{display:none}#syncrow b{min-width:44px;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums}
+#list{list-style:none;margin:0;padding:0;max-height:168px;overflow:auto;display:flex;flex-direction:column;gap:2px;scrollbar-width:thin}
+#list button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;padding:5px 6px;border-radius:9px;min-width:0}
+#list button:hover{background:rgba(244,239,226,.09)}#list li.cur button{background:rgba(244,239,226,.14)}
+#list img{width:34px;height:34px;border-radius:7px;object-fit:cover;flex:none}
+#list b{display:block;font-weight:600;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#list small{display:block;color:var(--dim);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#list .t{min-width:0;flex:1}
+.hint{color:var(--dim);font-size:11.5px;margin:0}.hint:empty{display:none}

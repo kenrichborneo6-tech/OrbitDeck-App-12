@@ -1,0 +1,23 @@
+{
+  "name": "orbit-deck",
+  "version": "1.0.0",
+  "description": "Desktop music widget: radial spectrum, kinetic lyrics, song picker",
+  "main": "main.js",
+  "author": "OrbitDeck",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.orbitdeck.app",
+    "productName": "OrbitDeck",
+    "directories": { "output": "dist", "buildResources": "build" },
+    "files": ["main.js", "preload.js", "renderer/**", "assets/**", "package.json"],
+    "win": { "target": [{ "target": "portable", "arch": ["x64"] }], "icon": "build/icon.png" },
+    "portable": { "artifactName": "OrbitDeck.exe" }
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  }
+}
